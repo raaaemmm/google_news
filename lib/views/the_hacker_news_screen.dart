@@ -76,9 +76,27 @@ class TheHackerNewsScreen extends StatelessWidget {
         builder: (_) {
           if(_hackerNewsController.isLoading){
             return Center(
-              child: LoadingAnimationWidget.fallingDot(
-                color: Color(0xFF272397),
-                size: 30.0,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+
+                  // loading icon
+                  LoadingAnimationWidget.fallingDot(
+                    color: Color(0xFF272397),
+                    size: 30.0,
+                  ),
+
+                  // text
+                  const SizedBox(height: 15.0),
+                  Text(
+                    'Be right there, please wait...',
+                    style: TextStyle(
+                      fontFamily: 'KantumruyPro',
+                      fontSize: 13.0,
+                      color: Color(0xFF272397),
+                    ),
+                  ),
+                ],
               ),
             );
           } else if(_hackerNewsController.hackerNewsList.isEmpty){

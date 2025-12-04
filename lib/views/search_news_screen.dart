@@ -114,9 +114,26 @@ class SearchNewsScreen extends StatelessWidget {
               builder: (_) {
                 if (_searchNewsController.isLoading) {
                   return Center(
-                    child: LoadingAnimationWidget.fallingDot(
-                      color: Theme.of(context).primaryColor,
-                      size: 30.0,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+
+                        // loading icon
+                        LoadingAnimationWidget.fallingDot(
+                          color: Theme.of(context).primaryColor,
+                          size: 30.0,
+                        ),
+
+                        const SizedBox(height: 15.0),
+                        Text(
+                          'Searching news...',
+                          style: TextStyle(
+                            fontFamily: 'KantumruyPro',
+                            fontSize: 13.0,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                      ],
                     ),
                   );
                 } else if (_searchNewsController.searchedNewsList.isEmpty) {
